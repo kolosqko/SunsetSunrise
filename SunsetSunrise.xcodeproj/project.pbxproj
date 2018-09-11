@@ -12,6 +12,13 @@
 		C1E828C32147F2C900DCBD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E828C12147F2C900DCBD58 /* Main.storyboard */; };
 		C1E828C52147F2CA00DCBD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E828C42147F2CA00DCBD58 /* Assets.xcassets */; };
 		C1E828C82147F2CA00DCBD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E828C62147F2CA00DCBD58 /* LaunchScreen.storyboard */; };
+		C1E828D82147FDE800DCBD58 /* SearchPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828D72147FDE800DCBD58 /* SearchPlaces.swift */; };
+		C1E828DA2147FE8900DCBD58 /* GooglePlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828D92147FE8900DCBD58 /* GooglePlacesModel.swift */; };
+		C1E828DD214812D300DCBD58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E828DC214812D300DCBD58 /* CoreLocation.framework */; };
+		C1E828DF214816F000DCBD58 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828DE214816F000DCBD58 /* Location.swift */; };
+		C1E828E12148194500DCBD58 /* SunsetSunriseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828E02148194500DCBD58 /* SunsetSunriseInfo.swift */; };
+		C1E828E32148197000DCBD58 /* SunsetSunriseInfoMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */; };
+		C1E828E72148244D00DCBD58 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		C1E828C42147F2CA00DCBD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1E828C72147F2CA00DCBD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1E828C92147F2CA00DCBD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1E828D72147FDE800DCBD58 /* SearchPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaces.swift; sourceTree = "<group>"; };
+		C1E828D92147FE8900DCBD58 /* GooglePlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesModel.swift; sourceTree = "<group>"; };
+		C1E828DC214812D300DCBD58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C1E828DE214816F000DCBD58 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C1E828E02148194500DCBD58 /* SunsetSunriseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetSunriseInfo.swift; sourceTree = "<group>"; };
+		C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetSunriseInfoMenager.swift; sourceTree = "<group>"; };
+		C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E828DD214812D300DCBD58 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,7 @@
 			children = (
 				C1E828BC2147F2C900DCBD58 /* SunsetSunrise */,
 				C1E828BB2147F2C900DCBD58 /* Products */,
+				C1E828DB214812D300DCBD58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +70,7 @@
 		C1E828BC2147F2C900DCBD58 /* SunsetSunrise */ = {
 			isa = PBXGroup;
 			children = (
+				C1E828D62147FDAB00DCBD58 /* Models */,
 				C1E828BD2147F2C900DCBD58 /* AppDelegate.swift */,
 				C1E828BF2147F2C900DCBD58 /* ViewController.swift */,
 				C1E828C12147F2C900DCBD58 /* Main.storyboard */,
@@ -62,6 +79,27 @@
 				C1E828C92147F2CA00DCBD58 /* Info.plist */,
 			);
 			path = SunsetSunrise;
+			sourceTree = "<group>";
+		};
+		C1E828D62147FDAB00DCBD58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1E828D72147FDE800DCBD58 /* SearchPlaces.swift */,
+				C1E828D92147FE8900DCBD58 /* GooglePlacesModel.swift */,
+				C1E828DE214816F000DCBD58 /* Location.swift */,
+				C1E828E02148194500DCBD58 /* SunsetSunriseInfo.swift */,
+				C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */,
+				C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1E828DB214812D300DCBD58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1E828DC214812D300DCBD58 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E828DA2147FE8900DCBD58 /* GooglePlacesModel.swift in Sources */,
 				C1E828C02147F2C900DCBD58 /* ViewController.swift in Sources */,
+				C1E828DF214816F000DCBD58 /* Location.swift in Sources */,
+				C1E828E72148244D00DCBD58 /* ViewControllerViewModel.swift in Sources */,
 				C1E828BE2147F2C900DCBD58 /* AppDelegate.swift in Sources */,
+				C1E828D82147FDE800DCBD58 /* SearchPlaces.swift in Sources */,
+				C1E828E12148194500DCBD58 /* SunsetSunriseInfo.swift in Sources */,
+				C1E828E32148197000DCBD58 /* SunsetSunriseInfoMenager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
