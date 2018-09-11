@@ -35,6 +35,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var astronomicalTwilightEndsLabel: UILabel!
     
+    
+    @IBOutlet weak var loadingView: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let locationMenager = CLLocationManager()
     
     let infoMenager = SunsetSunriseInfoMenager()
@@ -66,6 +71,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingView.isHidden = false
+        activityIndicator.stopAnimating()
         searchTextField.delegate = self
         
         
@@ -105,6 +112,8 @@ class ViewController: UIViewController {
         civilTwilightEndsLabel.text = formateDate(fromString: viewModel.info.results.civilTwilightEnd)
         astronomicalTwilightBeginsLabel.text = formateDate(fromString: viewModel.info.results.astronomicalTwilightBegin)
         astronomicalTwilightEndsLabel.text = formateDate(fromString: viewModel.info.results.astronomicalTwilightEnd)
+        
+        loadingView.isHidden = true
     }
 
 }
@@ -117,9 +126,20 @@ extension ViewController: UITextFieldDelegate {
         guard let text = textField.text else {
             return false
         }
-        SearchPlaces.shared.search(text: text, onSucces: {(location) in ()
-            self.location = location
+        SearchPlaces.shared.search(text: text, onComplition: {[weak self] (location, error) in ()
+            guard let strongSelf = self else {
+                return
+            }
+            if error {
+                DispatchQueue.main.async {
+                    strongSelf.loadingView.isHidden = true
+                }
+                
+                return
+            }
+            strongSelf.location = location
         })
+        loadingView.isHidden = false
         return true
     }
 }

@@ -15,7 +15,7 @@ class SearchPlaces {
     
     let key = "AIzaSyATmJrmL0nLUp5uZvzzCeZLV7nWIE1yvFw"
     
-    func search(text: String, onSucces: @escaping (LocationCoordinates) -> ()) {
+    func search(text: String, onComplition: @escaping (LocationCoordinates?, _ error: Bool) -> ()) {
         let strApi = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(text)&key=\(key)"
         guard let strGoogleApi = strApi.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: strGoogleApi)  else {
             return
@@ -34,9 +34,10 @@ class SearchPlaces {
                     return
                 }
                 guard let location = result.results.first?.geometry.location else {
+                    onComplition(nil, true)
                     return
                 }
-                onSucces(LocationCoordinates(location: location))
+                onComplition(LocationCoordinates(location: location), false)
                 
             } else {
                 //we have error connection google api
