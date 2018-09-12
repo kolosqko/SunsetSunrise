@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+extension UILabel {
+    
+    @IBInspectable
+    var adjustsFontSize: Bool {
+        get {
+            return self.adjustsFontSizeToFitWidth
+        }
+        set {
+            self.adjustsFontSizeToFitWidth = newValue
+        }
+    }
+}

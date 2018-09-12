@@ -40,6 +40,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+
+    @IBAction func currentLocationButtonAction(_ sender: Any) {
+        loadingView.isHidden = false
+        activityIndicator.startAnimating()
+        self.location = LocationCoordinates(locationMenager: locationMenager)
+    }
+    
+    
     let locationMenager = CLLocationManager()
     
     let infoMenager = SunsetSunriseInfoMenager()
@@ -75,7 +84,6 @@ class ViewController: UIViewController {
         activityIndicator.stopAnimating()
         searchTextField.delegate = self
         
-        
         locationMenager.requestWhenInUseAuthorization()
         locationMenager.delegate = self
         self.location = LocationCoordinates(locationMenager: locationMenager)
@@ -102,6 +110,8 @@ class ViewController: UIViewController {
         guard let viewModel = viewModel else {
             return
         }
+        
+        
         longitudeLabel.text = String(format:"%f", viewModel.location.longitude)
         latitudeLabel.text = String(format:"%f", viewModel.location.latitude)
         sunriseLabel.text = formateDate(fromString: viewModel.info.results.sunrise)
@@ -126,12 +136,16 @@ extension ViewController: UITextFieldDelegate {
         guard let text = textField.text else {
             return false
         }
+        textField.text = ""
         SearchPlaces.shared.search(text: text, onComplition: {[weak self] (location, error) in ()
             guard let strongSelf = self else {
                 return
             }
             if error {
                 DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error", message: "City location was not found. \nTry again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    strongSelf.present(alert, animated: true, completion: nil)
                     strongSelf.loadingView.isHidden = true
                 }
                 

@@ -11,7 +11,7 @@ import Foundation
 
 struct GooglePlace: Decodable {
     let results: [Result]
-//    let status: String
+    let status: String
 }
 
 struct Result: Decodable {
