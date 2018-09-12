@@ -29,4 +29,9 @@ class LocationCoordinates {
         self.latitude = location.lat
         self.longitude = location.lng
     }
+    
+    init(long: Double, lut: Double) {
+        self.longitude = long
+        self.latitude = lut
+    }
 }

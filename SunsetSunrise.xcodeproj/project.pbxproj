@@ -20,6 +20,7 @@
 		C1E828E32148197000DCBD58 /* SunsetSunriseInfoMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */; };
 		C1E828E72148244D00DCBD58 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */; };
 		C1F38924214850DB00699AA2 /* UILabelExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F38923214850DB00699AA2 /* UILabelExtention.swift */; };
+		C1F389282149124400699AA2 /* OnlyNumbersTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F389272149124400699AA2 /* OnlyNumbersTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetSunriseInfoMenager.swift; sourceTree = "<group>"; };
 		C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		C1F38923214850DB00699AA2 /* UILabelExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtention.swift; sourceTree = "<group>"; };
+		C1F389272149124400699AA2 /* OnlyNumbersTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyNumbersTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				C1E828E22148197000DCBD58 /* SunsetSunriseInfoMenager.swift */,
 				C1E828E62148244D00DCBD58 /* ViewControllerViewModel.swift */,
 				C1F38923214850DB00699AA2 /* UILabelExtention.swift */,
+				C1F389272149124400699AA2 /* OnlyNumbersTextFieldDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				C1E828DA2147FE8900DCBD58 /* GooglePlacesModel.swift in Sources */,
 				C1E828C02147F2C900DCBD58 /* ViewController.swift in Sources */,
 				C1E828DF214816F000DCBD58 /* Location.swift in Sources */,
+				C1F389282149124400699AA2 /* OnlyNumbersTextFieldDelegate.swift in Sources */,
 				C1F38924214850DB00699AA2 /* UILabelExtention.swift in Sources */,
 				C1E828E72148244D00DCBD58 /* ViewControllerViewModel.swift in Sources */,
 				C1E828BE2147F2C900DCBD58 /* AppDelegate.swift in Sources */,

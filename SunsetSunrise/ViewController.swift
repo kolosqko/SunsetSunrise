@@ -40,8 +40,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var longitudeTextField: UITextField!
     
-
+    @IBOutlet weak var latitudeTextField: UITextField!
+    
+    @IBAction func customLocationButtonAction(_ sender: Any) {
+        guard let longitudeString = longitudeTextField.text, let latitudeString = latitudeTextField.text else {
+            return
+        }
+        if let longitude = Double(longitudeString), let latitude = Double(latitudeString)  {
+            loadingView.isHidden = false
+            self.location = LocationCoordinates(long: longitude, lut: latitude)
+            
+        }
+        
+    }
+    
     @IBAction func currentLocationButtonAction(_ sender: Any) {
         loadingView.isHidden = false
         activityIndicator.startAnimating()
@@ -77,9 +91,12 @@ class ViewController: UIViewController {
         }
     }
     
+    private let numbersTextFieldDelegate = OnlyNumbersTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        latitudeTextField.delegate = numbersTextFieldDelegate
+        longitudeTextField.delegate = numbersTextFieldDelegate
         loadingView.isHidden = false
         activityIndicator.stopAnimating()
         searchTextField.delegate = self
@@ -103,6 +120,10 @@ class ViewController: UIViewController {
         
         return dateFormatter.string(from: date)
     }
+    
+    private func secondsToHoursMinSecString(_ seconds: Int) -> String {
+        return "\(seconds / 3600):\((seconds % 3600) / 60):\((seconds % 3600) % 60)"
+    }
 
 
     
@@ -117,7 +138,7 @@ class ViewController: UIViewController {
         sunriseLabel.text = formateDate(fromString: viewModel.info.results.sunrise)
         sunsetLabel.text = formateDate(fromString: viewModel.info.results.sunset)
         solarNoonLabel.text = formateDate(fromString: viewModel.info.results.solarNoon)
-        dayLengthLabel.text = String(viewModel.info.results.dayLength)
+        dayLengthLabel.text = secondsToHoursMinSecString(viewModel.info.results.dayLength)
         civilTwilightBeginsLabel.text = formateDate(fromString: viewModel.info.results.civilTwilightBegin)
         civilTwilightEndsLabel.text = formateDate(fromString: viewModel.info.results.civilTwilightEnd)
         astronomicalTwilightBeginsLabel.text = formateDate(fromString: viewModel.info.results.astronomicalTwilightBegin)
